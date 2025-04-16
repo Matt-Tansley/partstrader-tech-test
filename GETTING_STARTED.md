@@ -3,6 +3,7 @@
 ## Exercise Instructions
 
 - Provide the following documentation with applicable examples:
+
   - How to get the latest code.
   - How to deploy it locally.
   - How to run the tests.
@@ -14,7 +15,24 @@
 
 ## Purpose
 
-Provide a description of the purpose of this document.
+The purpose of this document is to:
+
+- Document my process for working on the tech test.
+- Explain how to get the test suite up and running.
+
+## Pre-Setup
+
+Before writing any code, I have done manual and exploratory testing to get a feel for the system under test, and to see if there are any obvious bugs and/or usability issues while following the in-scope test cases.
+
+For the UI test cases, I have done exploratory testing on the front end.
+
+For the API test cases, I have done checks in the browser network tab and Postman (see `partstrader_tech_test.postman_collection.json`).
+
+The browser I am using on my local machine is Arc, a Chromium based browser, and I have played around in the Dev environment.
+
+- **Improvement:** manual and exploratory testing should also be conducted on other browsers and environments.
+
+I have documented issues I came across in [ISSUES](ISSUES.md).
 
 ## Getting the Latest Code
 

@@ -11,11 +11,15 @@
 
 ## Comments
 
-- Improvement 1:
-  - Description:
+### Improvement 1: Update URLs to UI and API tests
 
-- Feedback 1:
-  - Description:
+**Description:** The URLs for the UI and API tests under Directions in `EXERCISE.md` just go to the home page of the Automation Exercise website.
+
+**Suggestion:** update the URLs to go directly to https://automationexercise.com/test_cases and https://automationexercise.com/api_list
+
+### Feedback 1:
+
+**Description:**
 
 ---
 

@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "4b380e81-9408-41ae-b291-59de381a8c48",
+		"name": "PartsTrader Technical Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11053798"
+	},
+	"item": [
+		{
+			"name": "API 1: Get All Products List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE__URL}}/api/productsList",
+					"host": [
+						"{{BASE__URL}}"
+					],
+					"path": [
+						"api",
+						"productsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 7: POST To Verify Login with valid details",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE__URL}}/api/verifyLogin",
+					"host": [
+						"{{BASE__URL}}"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 8: POST To Verify Login without email parameter",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "password",
+							"value": "D3v3nv1r0m3nt",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE__URL}}/api/verifyLogin",
+					"host": [
+						"{{BASE__URL}}"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 9: DELETE To Verify Login",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{BASE__URL}}/api/verifyLogin",
+					"host": [
+						"{{BASE__URL}}"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 10: POST To Verify Login with invalid details",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "invalid",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE__URL}}/api/verifyLogin",
+					"host": [
+						"{{BASE__URL}}"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 11: POST To Create/Register User Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "birth_date",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "company",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "address1",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "address2",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "zipcode",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE__URL}}/api/createAccount",
+					"host": [
+						"{{BASE__URL}}"
+					],
+					"path": [
+						"api",
+						"createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 12: DELETE METHOD To Delete User Account",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE__URL}}/api/deleteAccount",
+					"host": [
+						"{{BASE__URL}}"
+					],
+					"path": [
+						"api",
+						"deleteAccount"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE__URL",
+			"value": "https://automationexercise.com",
+			"type": "string"
+		}
+	]
+}
