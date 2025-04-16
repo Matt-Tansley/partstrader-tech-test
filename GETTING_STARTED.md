@@ -66,6 +66,14 @@ I have chosen Prettier as a code formatting tool. This was setup by running the 
 npm install -D --save-exact prettier
 ```
 
+### Husky
+
+I have chosen Husky as a pre-commit tool This was setup by running the below.
+
+```
+npx husky-init && npm install
+```
+
 ## Running the Tests
 
 Provide instructions on how to run the tests.
