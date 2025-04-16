@@ -42,6 +42,14 @@ Provide instructions on how to get the latest code.
 
 Provide instructions on how to set up the local environment, including any dependencies that need to be installed.
 
+### Playwright
+
+I have chosen Playwright as the automation framework due to its ability to quickly create an automation test suite. This was setup by running the below to create a skeleton Playwright test suite.
+
+```
+npm init playwright@latest
+```
+
 ## Running the Tests
 
 Provide instructions on how to run the tests.
