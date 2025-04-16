@@ -50,6 +50,22 @@ I have chosen Playwright as the automation framework due to its ability to quick
 npm init playwright@latest
 ```
 
+### ESlint
+
+I have chosen ESlint ha a code linting tool. This was setup by running the below.
+
+```
+npm install -D @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript typescript-eslint
+```
+
+### Prettier
+
+I have chosen Prettier as a code formatting tool. This was setup by running the below.
+
+```
+npm install -D --save-exact prettier
+```
+
 ## Running the Tests
 
 Provide instructions on how to run the tests.
