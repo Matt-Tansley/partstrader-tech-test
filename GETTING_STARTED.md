@@ -34,13 +34,9 @@ The browser I am using on my local machine is Arc, a Chromium based browser, and
 
 I have documented issues I came across in [ISSUES](ISSUES.md).
 
-## Getting the Latest Code
+## Development Setup
 
-Provide instructions on how to get the latest code.
-
-## Setting Up the Environment
-
-Provide instructions on how to set up the local environment, including any dependencies that need to be installed.
+Again, before writing any automation tests, I set up my development environment.
 
 ### Playwright
 
@@ -52,7 +48,7 @@ npm init playwright@latest
 
 ### ESlint
 
-I have chosen ESlint ha a code linting tool. This was setup by running the below.
+I have chosen ESlint ha a code linting tool, as it is a tool I'm familiar with and it is widely used. This was setup by running the below.
 
 ```
 npm install -D @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript typescript-eslint
@@ -60,7 +56,7 @@ npm install -D @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint
 
 ### Prettier
 
-I have chosen Prettier as a code formatting tool. This was setup by running the below.
+I have chosen Prettier as a code formatting tool, as it is a tool I'm familiar with and it is widely used. This was setup by running the below.
 
 ```
 npm install -D --save-exact prettier
@@ -68,19 +64,61 @@ npm install -D --save-exact prettier
 
 ### Husky
 
-I have chosen Husky as a pre-commit tool This was setup by running the below.
+I have chosen Husky as a pre-commit tool. This was setup by running the below.
 
 ```
 npx husky-init && npm install
 ```
 
+My Husky pre-commit script looks like the below. This will run eslint, prettier, and playwright, using scripts defined in `package.json`. If any of these scripts fail, then the commit will fail.
+
+```
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Lint code
+npm run lint || exit 1
+
+# Check code formatting
+npm run prettier || exit 1
+
+# Run playwright tests
+npm run test || exit 1
+```
+
+Now we have continuous testing on the local machine!
+
+**Improvement:** find out what linter, formatter, and pre-commit tools are used by the team and implement these so we are all using the same tooling. Also, find out the shared style and config used by the team and implement these in the test suite.
+
+### GitHub Actions
+
+Playwright comes with a basic GitHub Actions workflow, which I have edited slightly. It is best practice to avoid committing to main, and instead to submit code changes as a PR that triggers CI and is reviewed by other team members. GitHub Actions helps to achieve this.
+
+**Improvements:**
+
+- Workflow could add a comment to the PR with a link to the test report.
+- Workflow could upload the HTML test report to a static hosting service (such as Amazon S3) and print the link for this to conveniently view the reports.
+- Find out the team's CI and PR process and make changes to the workflow if necessary to align with standards.
+
+## Getting the Latest Code
+
+Provide instructions on how to get the latest code.
+
+## Setting Up the Environment
+
+Provide instructions on how to set up the local environment, including any dependencies that need to be installed.
+
 ## Running the Tests
 
 Provide instructions on how to run the tests.
 
-## Additional Details
+A script has been setup in `package.json` to run the Playwright tests.
 
-Provide any other details you find pertinent, such as troubleshooting tips, common issues, or additional setup steps.
+```
+npm run test
+```
+
+## Additional Details
 
 ---
 
