@@ -1,30 +1,6 @@
 # Issues
 
-## Exercise Instructions
-
-- This section is optional.
-- Use this page to document any issues related to the application that need to be fixed.
-- Issues can be identified at any point, so they do not need to be part of the automated test.
-
-When documenting issues, please include:
-
-- A brief description of the issue.
-- How it was found (e.g., automated test, exploratory testing, observation while coding, etc.).
-- Whether it is reproducible.
-
-Feel free to add more details as necessary.
-
-**Note:** Remove this section after completing the exercise.
-
 ## Documented Issues
-
-### Issue Template
-
-**Found by:**
-
-**Reproducable:**
-
-**Comments:**
 
 ### Issue 1: Credit card number input field is not masked
 
@@ -74,15 +50,16 @@ Recommendation: confirm with stakeholders what the correct message should be. Th
 
 Update: it appears the expected message shows up temporarily, but does not remain on the page after the purchase process has been completed.
 
-### Issue 6: Review requirements for Test Case 15
+### Issue 6: Review requirements for Test Case 14 and 15
 
-**Found by:** Reading test case and exploratory testing
+**Found by:** Reading test cases and exploratory testing
 
 **Reproducable:** N/A
 
-**Comments:** Various parts of Test Case 15 should be clarified for more accurate testing:
+**Comments:** Various parts of Test Case 14 and 15 should be clarified for more accurate testing:
 
-- Step 3: there is no specific requirement on what exactly should be visible when cart page is displayed.
+- Step 3 (both test cases): there is no specific requirement on what exactly should be visible when home page is displayed.
+- Step 6 (Test Case 14): there is no specific requirement on what exactly should be visible when cart page is displayed.
 
 ### Issue 7: There is mo input masking and validation on mobile number input on user sign up form
 
