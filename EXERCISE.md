@@ -36,14 +36,14 @@ You can use other packages to complete your exercise; the constraints are specif
 - Use interception and mocking to speed tests by bypassing API calls.
 - Find development defects or accessibility issues that need to be corrected.
 - Configure Environment Settings
-    1. **Dev environment** will be the working instance
-       - baseUrl is https://automationexercise.com/
-       - password for all users is D3v3nv1r0m3nt
-    2. **Test environment** will be the non-working instance
-       - baseUrl is https://test.automationexercise.com/
-       - password for all users T35t3nv1r0m3nt
-    3. Need to build a mechanism to specify which environment settings to use.
-    4. Need to build a mechanism to skip the tests if environment is unreachable.
+  1. **Dev environment** will be the working instance
+     - baseUrl is https://automationexercise.com/
+     - password for all users is D3v3nv1r0m3nt
+  2. **Test environment** will be the non-working instance
+     - baseUrl is https://test.automationexercise.com/
+     - password for all users T35t3nv1r0m3nt
+  3. Need to build a mechanism to specify which environment settings to use.
+  4. Need to build a mechanism to skip the tests if environment is unreachable.
 
 ## Directions
 
@@ -53,8 +53,8 @@ You can use other packages to complete your exercise; the constraints are specif
    - Write a test for Test Case 15: Place Order: Register before Checkout.
 3. **Navigate to <https://automationexercise.com/> for API Tests**:
    - Write tests that verifyLogin, including API 7, 8, 9, and 10.
-      - These test scenarios may require additional API endpoint calls other than verifyLogin to satisfy data prerequisites.
-      - The documentation is not clear, but POST endpoints will require a x-www-form-urlencoded content type
+     - These test scenarios may require additional API endpoint calls other than verifyLogin to satisfy data prerequisites.
+     - The documentation is not clear, but POST endpoints will require a x-www-form-urlencoded content type
 4. **Provide a [GETTING_STARTED](GETTING_STARTED.md)** to explain to a reviewer how to use your tests.
 5. **(Optional) Document any application [ISSUES](ISSUES.md)** found during your process
 6. **(Optional) Provide any [FEEDBACK](FEEDBACK.md)** to organizers or reviewers of this exercise
