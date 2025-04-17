@@ -34,6 +34,12 @@ Install all dependences for the project using the below command by running from 
 npm install
 ```
 
+To ensure Playwright and browsers are properly setup, especially if you are on a machine on which you haven't run Playwright on before, run the below.
+
+```
+npx playwright install
+```
+
 ## Running the Tests
 
 A script has been setup in `package.json` to run all the Playwright tests (in headless mode).
