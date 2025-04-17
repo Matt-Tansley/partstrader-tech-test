@@ -155,6 +155,16 @@ As an example, I tried to trigger the Products List API by checking the browser 
 
 **Comments:** Sometimes when the automated tests are run, time outs occur. This has not been reproduceable and seems to be intermittent. The automation tests should be investigated to see if performance can be improved, and logs and metrics for the system under test should be investigated to see if the timeouts coincide with downtime or activity spikes.
 
+### Issue 16: No way to retrieve forgotten passwords
+
+**Found by:** Automation testing
+
+**Reproducable:** N/A
+
+**Comments:** During automation testing, I found that a user could not be registered if the given email already exists for an account. The solution to this would be to first delete the account from the system. However, it is not possible to delete an account without either 1. logging in and deleting in the UI, or 2. using the DELETE METHOD To Delete User Account API which requires password as a parameter. It would be better if there was some way to retrieve forgotten passwords through the UI, as this could then be automated. Resolving this issue now requires reaching out for support (e.g backend team, database team, etc).
+
+More importantly, having no forgotten password workflow is bad for customer experience. If a real user forgets their password, there is no obvious way for them to get back into their account.
+
 ---
 
 ## Links

@@ -190,6 +190,13 @@ npm i -D @ngneat/falso
 
 ### Step 4: Creating The Tests
 
+2 approaches for writing UI tests are:
+
+1. Long E2E tests that cover each user action step by step.
+2. Smaller 'focused' tests that test a specific piece of functionality.
+
+There are pros and cons to each. For the sake of this exercise, I have written long E2E tests. This is because we only have a couple of test cases with a well-defined list of steps, so it is straightforward to map these steps to the test cases. As the test suite grows, it may be better to review this approach and test the functionality described in test case 14 and 15 as smaller chunks. One downside of smaller chunk tests is that it does not truly test a fully end-to-end flow where we test the integration of each action with each other. However, a downside of long E2E tests is that they can take a long time to run, and if one step fails then it fails the whole test.
+
 Notes while making the UI tests:
 
 - Used Playwright codegen tool to help setup locators and basic test structure.
