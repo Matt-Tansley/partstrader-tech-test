@@ -20,17 +20,8 @@ export class LoginPage {
     this.signupLink = page.getByRole("button", { name: "Signup" });
   }
 
-  async goto() {
-    await this.page.goto("/login");
-  }
-
-  async fillSignupNameInput(name: string) {
-    await this.signupNameInput.click();
+  async fillForm(name: string, email: string) {
     await this.signupNameInput.fill(name);
-  }
-
-  async fillSignupEmailinput(email: string) {
-    await this.signupEmailInput.click();
     await this.signupEmailInput.fill(email);
   }
 
