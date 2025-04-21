@@ -1,6 +1,11 @@
 export default async () => {
   console.log("Running global setup");
 
+  if (!process.env.ENV) {
+    console.log(`process.env.ENV is undefined, using 'dev' by default`);
+    process.env.ENV = "dev";
+  }
+
   try {
     await fetch(process.env.BASE_URL);
     console.log(
