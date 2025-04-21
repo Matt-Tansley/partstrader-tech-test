@@ -1,0 +1,41 @@
+{
+  "name": "partstrader-tech-test",
+  "version": "1.0.0",
+  "description": "This repository is designed for prospective candidates to complete a technical interview exercise.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:report": "playwright show-report",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier . --check",
+    "prettier:fix": "prettier . --write",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matt-Tansley/partstrader-tech-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Matt-Tansley/partstrader-tech-test/issues"
+  },
+  "homepage": "https://github.com/Matt-Tansley/partstrader-tech-test#readme",
+  "devDependencies": {
+    "@ngneat/falso": "^7.3.0",
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.14.1",
+    "@typescript-eslint/eslint-plugin": "^8.30.1",
+    "@typescript-eslint/parser": "^8.30.1",
+    "dotenv": "^16.5.0",
+    "eslint": "^9.24.0",
+    "husky": "^8.0.0",
+    "prettier": "3.5.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.30.1"
+  }
+}
