@@ -1,4 +1,5 @@
 import { Locator, type Page } from "@playwright/test";
+import { CreditCardFormData } from "../utils/test-data";
 
 export class PaymentPage {
   readonly page: Page;
@@ -21,18 +22,12 @@ export class PaymentPage {
     });
   }
 
-  async fillForm(
-    name: string,
-    cardNumber: string,
-    cvc: string,
-    month: string,
-    year: string,
-  ) {
-    await this.nameInput.fill(name);
-    await this.cardNumberInput.fill(cardNumber);
-    await this.cvcInput.fill(cvc);
-    await this.expirationMonthInput.fill(month);
-    await this.expirationYearInput.fill(year);
+  async fillForm(formData: CreditCardFormData) {
+    await this.nameInput.fill(formData.name);
+    await this.cardNumberInput.fill(formData.cardNumber);
+    await this.cvcInput.fill(formData.cvc);
+    await this.expirationMonthInput.fill(formData.month.toString());
+    await this.expirationYearInput.fill(formData.year.toString());
   }
 
   async clickPayAndConfirmButton() {

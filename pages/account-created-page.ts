@@ -1,4 +1,5 @@
 import { Locator, type Page } from "@playwright/test";
+import { HomePage } from "./home-page";
 
 export class AccountCreatedPage {
   readonly page: Page;
@@ -11,5 +12,6 @@ export class AccountCreatedPage {
 
   async clickContinueLink() {
     await this.continueLink.click();
+    return new HomePage(this.page);
   }
 }

@@ -195,7 +195,14 @@ npm i -D @ngneat/falso
 1. Long E2E tests that cover each user action step by step.
 2. Smaller 'focused' tests that test a specific piece of functionality.
 
-There are pros and cons to each. For the sake of this exercise, I have written long E2E tests. This is because we only have a couple of test cases with a well-defined list of steps, so it is straightforward to map these steps to the test cases. As the test suite grows, it may be better to review this approach and test the functionality described in test case 14 and 15 as smaller chunks. One downside of smaller chunk tests is that it does not truly test a fully end-to-end flow where we test the integration of each action with each other. However, a downside of long E2E tests is that they can take a long time to run, and if one step fails then it fails the whole test.
+There are pros and cons to each. For the sake of this exercise, I have written long E2E tests. This is because we only have a couple of test cases with a well-defined list of steps, so it is straightforward to map these steps to the test cases. As the test suite grows, it may be better to review this approach and test the functionality described in test case 14 and 15 as smaller chunks. One downside of smaller chunk tests is that it does not truly test a fully end-to-end flow where we test the integration of each action with each other. However, a downside of long E2E tests is that they can take a long time to run, and if one step fails then it fails the whole test. A good test suite should have both long E2E and small focused tests.
+
+On the Page Object Model, there are 2 approaches to creating page objects:
+
+1. Create all needed page objects at the start of a test from constructors.
+2. Return page objects form method calls after a user action.
+
+I have gone with approach 2 because it is self-documenting (e.g clickProducts() returns a ProductsPage instance, this logically defines the expected behaviour of clicking the link) and it enforces a specific user action flow in the test (e.g we can't just randomly create page objects, they are logically created when the test does the proper user action that would navigate to them). Approach 1 is still valid in some cases, such as if the specific test doesn't care about proper navigation, or as a data/state setup step. In real-life, requirements for tests should be clearly defined and automation code should follow the team's expected style, which would help to determine which approach to take.
 
 Notes while making the UI tests:
 
@@ -220,6 +227,9 @@ Notes while making the UI tests:
 - [ ] For sign up and credit card forms, there should be other tests for validating the form and testing edge cases.
 - [ ] On the cart page, clicking proceed to checkout either result in a modal pop-up (if the user is not logged in) or navigates the user to the next page. The logic of how the test handles this could potentially be improved.
 - [ ] If applicable, the automated tests should also be run on other types of devices and screen sizes (such as mobile and tablet).
+- [ ] Implementations of the page object classes could be built-out more. I've only created methods necessary for the tests in this exercise (e.g navbar has several links in it, but I've only implemented methods for automation clicking on a couple of them).
+- [ ] Account created page success message is hardcoded twice in the ui tests. If the message changes, then code needs to be updated in more than 1 place. Improvement would be to refactor this so that the success message is defined once (perhaps return as a method call to account created page).
+- [ ] Abstract parts of Test Case 14 and 15 into functions. The test cases share much of the same functionality, and so this shared functionality could be refactored into reusable functions. I have done this for test data creation, but it could be done further. For now, since there are only 2 test cases it is manageable, however as the test suite grows it would be easier to maintain if this was done.
 
 ### Step 5: Submission
 

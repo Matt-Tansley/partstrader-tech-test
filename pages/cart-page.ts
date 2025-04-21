@@ -18,8 +18,12 @@ export class CartPage {
   async clickProceedToCheckout() {
     await this.proceedToCheckoutButton.click();
 
-    // Would like to improve the logic here, since this click will not always navigate to checkout page
-    return new CheckoutPage(this.page);
+    // Would like to improve the logic here, since this click can either bring up a pop-up or navigate to checkout page
+    if (await this.registerLoginLink.isVisible()) {
+      return this.page;
+    } else {
+      return new CheckoutPage(this.page);
+    }
   }
 
   async clickRegisterLoginLink() {

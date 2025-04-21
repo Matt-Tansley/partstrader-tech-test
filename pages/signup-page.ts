@@ -1,5 +1,6 @@
 import { Locator, type Page } from "@playwright/test";
 import { AccountCreatedPage } from "./account-created-page";
+import { SignupFormData } from "../utils/test-data";
 
 export class SignupPage {
   readonly page: Page;
@@ -56,37 +57,26 @@ export class SignupPage {
     });
   }
 
-  // Feels like a long method code smell... how would you handle this?
   // The select dropdown menus could be parametertised by extracting data from the webpage.
+  // Date numbers could also be parameterised.
   // Might be better to pass the list of arguments as an object.
-  async fillForm(
-    password: string,
-    firstName: string,
-    lastName: string,
-    company: string,
-    address1: string,
-    address2: string,
-    state: string,
-    city: string,
-    zipcode: string,
-    mobileNumber: string,
-  ) {
+  async fillForm(formData: SignupFormData) {
     await this.titleRadio.check();
-    await this.passwordInput.fill(password);
+    await this.passwordInput.fill(formData.password);
     await this.birthDaySelect.selectOption("1");
     await this.birthMonthSelect.selectOption("1");
     await this.birthYearSelect.selectOption("2000");
     await this.newsletterCheckbox.check();
     await this.offersCheckbox.check();
-    await this.firstNameInput.fill(firstName);
-    await this.lastNameInput.fill(lastName);
-    await this.companyInput.fill(company);
-    await this.address1Input.fill(address1);
-    await this.address2Input.fill(address2);
-    await this.stateInput.fill(state);
-    await this.cityInput.fill(city);
-    await this.zipcodeInput.fill(zipcode);
-    await this.mobileNumberInput.fill(mobileNumber);
+    await this.firstNameInput.fill(formData.firstName);
+    await this.lastNameInput.fill(formData.lastName);
+    await this.companyInput.fill(formData.company);
+    await this.address1Input.fill(formData.address1);
+    await this.address2Input.fill(formData.address2);
+    await this.stateInput.fill(formData.state);
+    await this.cityInput.fill(formData.city);
+    await this.zipcodeInput.fill(formData.zipcode);
+    await this.mobileNumberInput.fill(formData.mobileNumber);
   }
 
   async clickCreateAccount() {
