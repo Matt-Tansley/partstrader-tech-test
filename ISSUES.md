@@ -147,15 +147,7 @@ Checks to make:
 
 As an example, I tried to trigger the Products List API by checking the browser network tab after navigating to the Products page. This did not send a request to https://automationexercise.com/api/productsList, indicating the API is not actually used by the front end, or it is made a downstream call and therefore not visible in the browser network tab.
 
-### Issue 15: Test timeouts observed, even with a 60 second time out, while testing Test Case 14
-
-**Found by:** Automation testing
-
-**Reproducable:** No
-
-**Comments:** Sometimes when the automated tests are run, time outs occur. This has not been reproduceable and seems to be intermittent. The automation tests should be investigated to see if performance can be improved, and logs and metrics for the system under test should be investigated to see if the timeouts coincide with downtime or activity spikes.
-
-### Issue 16: No way to retrieve forgotten passwords
+### Issue 15: No way to retrieve forgotten passwords
 
 **Found by:** Automation testing
 

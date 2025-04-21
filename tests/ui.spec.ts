@@ -12,8 +12,9 @@ import {
 let randomEmail: string;
 
 test.beforeAll("Test data setup", () => {
-  // Use parallel worker index with Falso seed() to ensure repeatable data that is unique per worker.
-  falso.seed(`worker_${test.info().workerIndex}`);
+  // Use test id with Falso seed() to ensure repeatable data that is unique per worker.
+  falso.seed(`${test.info().testId}`);
+
   randomEmail = falso.randEmail();
 });
 

@@ -48,16 +48,16 @@ A script has been setup in `package.json` to run all the Playwright tests (in he
 npm run test
 ```
 
+For test development purposes, tests can be run in UI mode which visualises what each step of the test does.
+
+```
+npx playwright test --ui
+```
+
 Tests can be run in debug mode which provides a browser and allows you to go step-by-step through the test.
 
 ```
 npx playwright test --debug
-```
-
-For development purposes, tests can be run in UI mode which visualises what each step of the test does.
-
-```
-npx playwright test --ui
 ```
 
 ## Project Structure
@@ -66,7 +66,8 @@ Notable files and folder include:
 
 - `tests/` - contains the actual Playwright tests which get executed.
 - `pages/` - reusable page classes, following the Page Object Model pattern.
-- `.github/workflows` - defines a CI workflow that is run when there are pushes to main or a PR to main.
+- `utils/` - utility functions for use in test code. Currently this just contains util functions for generating test data.
+- `.github/workflows/` - defines a CI workflow that is run when there are pushes to main or a PR to main.
 - `partstrader_tech_test.postman_collection.json` - a Postman collection for manual tests against the APIs.
 
 ## Additional Details
@@ -214,6 +215,12 @@ Notes while making the UI tests:
 - Default country in sign up form is used.
 - I found that Falso `randPassword()` is returning wrong type (a string array rather than a string). An issue has already been reported to the Falso maintainers about this: https://github.com/ngneat/falso/issues/400.
 - Need to ensure that if tests are running in parallel, that each test uses a different username, otherwise there will be conflicts during sign up if all the tests use the same username. This is one of the pitfalls of parallel testing. The exact issue I ran into was that the website does not allow a user to sign up with a username and email if it already exists. When executing parallel tests all using the same seed to generate login details, this lead to conflicts between the tests.
+- Names of the Playwright tests are the same as the UI test cases for easy mapping between requirements and code.
+
+Notes while making the API tests:
+
+- With Playwright, normally we'd use the 'data' option when sending request payloads, however because the system API has been implemented with x-www-form-urlencoded content type, data needs to be sent as form data. Although Playwright does has a 'form' option, and this appears to automatically set the x-www-form-urlencoded content type header, so setting this at the start of the API tests could be removed.
+- Names of the Playwright tests are the same as the API test cases for easy mapping between requirements and code.
 
 **Improvements:**
 
@@ -230,6 +237,8 @@ Notes while making the UI tests:
 - [ ] Implementations of the page object classes could be built-out more. I've only created methods necessary for the tests in this exercise (e.g navbar has several links in it, but I've only implemented methods for automation clicking on a couple of them).
 - [ ] Account created page success message is hardcoded twice in the ui tests. If the message changes, then code needs to be updated in more than 1 place. Improvement would be to refactor this so that the success message is defined once (perhaps return as a method call to account created page).
 - [ ] Abstract parts of Test Case 14 and 15 into functions. The test cases share much of the same functionality, and so this shared functionality could be refactored into reusable functions. I have done this for test data creation, but it could be done further. For now, since there are only 2 test cases it is manageable, however as the test suite grows it would be easier to maintain if this was done.
+- [ ] New test cases could be created for the create account API to test edge cases (e.g invalid dates, special characters).
+- [ ] The test for API 7: POST To Verify Login with valid details attempts to create an account before checking if it exists. There could be assertions on this API. Logic should be implemented to handle if the email already exists OR if the account is created successfully (either of these would be a correct response to test the verify login API) or if a different unsucessful response was returned.
 
 ### Step 5: Submission
 

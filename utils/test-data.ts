@@ -46,3 +46,45 @@ export const generateCreditCardFormData = (): CreditCardFormData => {
     year: falso.randNumber({ min: 2025, max: 2030 }),
   };
 };
+
+export interface CreateAccountPayload {
+  name: string;
+  email: string;
+  password: string;
+  title: string;
+  birthDate: string;
+  birthMonth: string;
+  birthYear: string;
+  firstName: string;
+  lastName: string;
+  company: string;
+  address1: string;
+  address2: string;
+  country: string;
+  zipcode: string;
+  state: string;
+  city: string;
+  mobileNumber: string;
+}
+
+export const generateCreateAccountPayload = (): CreateAccountPayload => {
+  return {
+    name: falso.randUserName(),
+    email: falso.randEmail(),
+    password: process.env.PASSWORD,
+    title: "Mr",
+    birthDate: falso.randPastDate().getDate().toString(),
+    birthMonth: falso.randPastDate().getMonth().toString(),
+    birthYear: falso.randPastDate().getFullYear().toString(),
+    firstName: falso.randFirstName(),
+    lastName: falso.randLastName(),
+    company: falso.randCompanyName(),
+    address1: falso.randStreetAddress(),
+    address2: falso.randCounty(),
+    country: falso.randCountry(),
+    zipcode: falso.randZipCode(),
+    state: falso.randState(),
+    city: falso.randCity(),
+    mobileNumber: falso.randPhoneNumber(),
+  };
+};
