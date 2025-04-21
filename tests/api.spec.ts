@@ -91,7 +91,7 @@ test("API 10: POST To Verify Login with invalid details", async ({
 
   // Ensure that the user does not exist
   await request.delete("/api/deleteAccount", {
-    data: {
+    form: {
       email: randomEmail,
       password: randomPassword,
     },

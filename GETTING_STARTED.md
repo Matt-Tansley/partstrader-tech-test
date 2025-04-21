@@ -60,6 +60,14 @@ Tests can be run in debug mode which provides a browser and allows you to go ste
 npx playwright test --debug
 ```
 
+By default, thes tests will run against the dev environment. This can be changed by setting the `ENV` enviornment variable. Currently supported values for this are `dev` and `test`.
+
+Example: run tests in test environment
+
+```
+export ENV=test && npm run test
+```
+
 ## Project Structure
 
 Notable files and folder include:
@@ -69,6 +77,8 @@ Notable files and folder include:
 - `utils/` - utility functions for use in test code. Currently this just contains util functions for generating test data.
 - `.github/workflows/` - defines a CI workflow that is run when there are pushes to main or a PR to main.
 - `partstrader_tech_test.postman_collection.json` - a Postman collection for manual tests against the APIs.
+- `env/` - config for testing in different environments. By default, `.env.dev` is used (as defined in `playwright.config.ts`). Environment can be configured by setting `process.env.ENV` to either `dev` or `test`.
+- `global-setup.ts` - Playwright will run this script before executing the test suite. Currently this script checks to see if the target environment is reachable; if it is not then it will throw an error and not run the test suite.
 
 ## Additional Details
 

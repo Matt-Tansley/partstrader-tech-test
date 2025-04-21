@@ -24,7 +24,7 @@ test.beforeEach("Ensure user does not exist", async ({ request }) => {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    data: {
+    form: {
       email: randomEmail,
       password: process.env.PASSWORD,
     },

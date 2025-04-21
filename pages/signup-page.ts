@@ -59,7 +59,6 @@ export class SignupPage {
 
   // The select dropdown menus could be parametertised by extracting data from the webpage.
   // Date numbers could also be parameterised.
-  // Might be better to pass the list of arguments as an object.
   async fillForm(formData: SignupFormData) {
     await this.titleRadio.check();
     await this.passwordInput.fill(formData.password);
