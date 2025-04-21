@@ -108,7 +108,7 @@ test("Test Case 14: Place Order: Register while Checkout", async ({ page }) => {
       signupFormData.address1,
     );
     await expect(
-      page.getByRole("heading", { name: "Review Your Order" }),
+      checkoutPage.page.getByRole("heading", { name: "Review Your Order" }),
     ).toBeVisible();
 
     // 15. Enter description in comment text area and click 'Place Order'
@@ -123,7 +123,7 @@ test("Test Case 14: Place Order: Register while Checkout", async ({ page }) => {
     await paymentPage.clickPayAndConfirmButton();
 
     // 18. Verify success message 'Your order has been placed successfully!'
-    await expect(page.getByText("Order Placed!")).toBeVisible();
+    await expect(paymentPage.page.getByText("Order Placed!")).toBeVisible();
 
     //19. Click 'Delete Account' button
     await page.getByRole("link", { name: "Delete Account" }).click();
@@ -196,7 +196,7 @@ test("Test Case 15: Place Order: Register before Checkout", async ({
       signupFormData.address1,
     );
     await expect(
-      page.getByRole("heading", { name: "Review Your Order" }),
+      checkoutPage.page.getByRole("heading", { name: "Review Your Order" }),
     ).toBeVisible();
 
     // 13. Enter description in comment text area and click 'Place Order'
@@ -211,7 +211,7 @@ test("Test Case 15: Place Order: Register before Checkout", async ({
     await paymentPage.clickPayAndConfirmButton();
 
     // 16. Verify success message 'Your order has been placed successfully!'
-    await expect(page.getByText("Order Placed!")).toBeVisible();
+    await expect(paymentPage.page.getByText("Order Placed!")).toBeVisible();
 
     // 17. Click 'Delete Account' button
     await page.getByRole("link", { name: "Delete Account" }).click();
